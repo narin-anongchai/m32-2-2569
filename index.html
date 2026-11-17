@@ -66,49 +66,34 @@
     .sticky-col-no {
       position: sticky;
       left: 0;
-      width: 44px;
-      min-width: 44px;
-      max-width: 44px;
-      z-index: 20;
-    }
-    .sticky-col-code {
-      position: sticky;
-      left: 44px;
-      width: 72px;
-      min-width: 72px;
-      max-width: 72px;
+      width: 48px;
+      min-width: 48px;
+      max-width: 48px;
       z-index: 20;
     }
     .sticky-col-name {
       position: sticky;
-      left: 116px;
-      width: 175px;
-      min-width: 175px;
-      max-width: 175px;
+      left: 48px;
+      width: 190px;
+      min-width: 190px;
+      max-width: 190px;
       z-index: 20;
       box-shadow: 4px 0 6px -2px rgba(15, 23, 42, 0.12);
     }
     @media (max-width: 640px) {
       .sticky-col-no {
-        width: 36px;
-        min-width: 36px;
-        max-width: 36px;
-      }
-      .sticky-col-code {
-        left: 36px;
-        width: 58px;
-        min-width: 58px;
-        max-width: 58px;
+        width: 38px;
+        min-width: 38px;
+        max-width: 38px;
       }
       .sticky-col-name {
-        left: 94px;
-        width: 135px;
-        min-width: 135px;
-        max-width: 135px;
+        left: 38px;
+        width: 145px;
+        min-width: 145px;
+        max-width: 145px;
       }
     }
     thead .sticky-col-no,
-    thead .sticky-col-code,
     thead .sticky-col-name,
     tfoot .sticky-col-footer {
       z-index: 30;
@@ -356,7 +341,7 @@
         <div class="flex flex-wrap items-center gap-3 flex-1 min-w-[260px]">
           <div class="relative flex-1 max-w-md">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="searchStudentInput" oninput="renderGradebookTable()" placeholder="ค้นหาเลขที่, รหัสนักเรียน หรือ ชื่อ-นามสกุล..." class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+            <input type="text" id="searchStudentInput" oninput="renderGradebookTable()" placeholder="ค้นหาเลขที่ หรือ ชื่อ-นามสกุล..." class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
           </div>
 
           <select id="filterGradeSelect" onchange="renderGradebookTable()" class="px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm bg-slate-50 font-medium">
@@ -484,12 +469,6 @@
                   <input type="number" id="addStuNo" required min="1" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="เช่น 1" />
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-slate-600 mb-1">รหัสนักเรียน</label>
-                  <input type="text" id="addStuCode" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="เช่น 66101" />
-                </div>
-              </div>
-              <div class="grid grid-cols-3 gap-2.5">
-                <div>
                   <label class="block text-xs font-semibold text-slate-600 mb-1">คำนำหน้า</label>
                   <select id="addStuPrefix" class="w-full px-2.5 py-2 rounded-xl border border-slate-300 text-sm bg-white">
                     <option value="ด.ช.">ด.ช.</option>
@@ -499,10 +478,10 @@
                     <option value="">ไม่ระบุ</option>
                   </select>
                 </div>
-                <div class="col-span-2">
-                  <label class="block text-xs font-semibold text-slate-600 mb-1">ชื่อ - นามสกุล *</label>
-                  <input type="text" id="addStuFullName" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="เช่น สมชาย ใจดี" />
-                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">ชื่อ - นามสกุล *</label>
+                <input type="text" id="addStuFullName" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" placeholder="เช่น สมชาย ใจดี" />
               </div>
               <button type="submit" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-sm transition flex items-center justify-center gap-1.5">
                 <i data-lucide="plus" class="w-4 h-4"></i>
@@ -523,7 +502,7 @@
               </div>
             </div>
             <p class="text-xs text-blue-100 leading-relaxed">
-              รองรับการวางข้อมูลหลายบรรทัดพร้อมกัน เช่น <code class="bg-white/15 px-1.5 py-0.5 rounded">เลขที่, รหัสนักเรียน, ชื่อ-นามสกุล</code> หรือวางเฉพาะรายชื่อให้นับเลขที่อัตโนมัติ
+              รองรับการวางข้อมูลหลายบรรทัดพร้อมกัน เช่น <code class="bg-white/15 px-1.5 py-0.5 rounded">เลขที่, ชื่อ-นามสกุล</code> หรือวางเฉพาะรายชื่อให้นับเลขที่อัตโนมัติ
             </p>
             <button onclick="openBulkImportModal()" class="w-full py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm transition flex items-center justify-center gap-1.5 shadow">
               <i data-lucide="upload" class="w-4 h-4"></i>
@@ -537,7 +516,7 @@
           <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
             <div>
               <h3 class="text-base font-bold text-slate-800">รายชื่อนักเรียนในห้องเรียนปัจจุบัน</h3>
-              <p class="text-xs text-slate-500">สามารถแก้ไขชื่อ รหัสนักเรียน หรือเรียงลำดับเลขที่ใหม่ได้โดยตรง</p>
+              <p class="text-xs text-slate-500">สามารถแก้ไขชื่อ หรือเรียงลำดับเลขที่ใหม่ได้โดยตรง</p>
             </div>
             <div class="flex items-center gap-2">
               <button onclick="renumberStudents()" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-xs font-semibold text-slate-700 transition">
@@ -554,7 +533,6 @@
               <thead class="bg-slate-100 text-slate-700 text-xs uppercase sticky top-0">
                 <tr>
                   <th class="py-2.5 px-3 text-center w-20">เลขที่</th>
-                  <th class="py-2.5 px-3 text-center w-32">รหัสนักเรียน</th>
                   <th class="py-2.5 px-3 text-left">คำนำหน้า - ชื่อ - นามสกุล</th>
                   <th class="py-2.5 px-3 text-center w-24">จัดการ</th>
                 </tr>
@@ -692,7 +670,7 @@
         <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3.5 text-xs text-indigo-900 space-y-1">
           <p class="font-bold">วิธีใช้งานง่ายๆ (รองรับทั้งการวางจากตาราง Excel/Google Sheets และไฟล์ .csv):</p>
           <p>1. คัดลอกคอลัมน์จาก Excel หรือ Google Sheets แล้วนำมาวางในช่องด้านล่าง (1 บรรทัดต่อ 1 คน)</p>
-          <p>2. รูปแบบที่รองรับ: <code class="bg-white px-1.5 py-0.5 rounded border">เลขที่ [Tab หรือ ,] รหัสนักเรียน [Tab หรือ ,] ชื่อ-นามสกุล</code> หรือวางเฉพาะ <code class="bg-white px-1.5 py-0.5 rounded border">ชื่อ-นามสกุล</code> ก็ได้</p>
+          <p>2. รูปแบบที่รองรับ: <code class="bg-white px-1.5 py-0.5 rounded border">เลขที่ [Tab หรือ ,] ชื่อ-นามสกุล</code> หรือวางเฉพาะ <code class="bg-white px-1.5 py-0.5 rounded border">ชื่อ-นามสกุล</code> ก็ได้</p>
         </div>
 
         <!-- Upload CSV file option -->
@@ -707,7 +685,7 @@
           </button>
         </div>
 
-        <textarea id="bulkImportTextarea" rows="8" placeholder="ตัวอย่างการวางข้อมูล:&#10;1	66001	ด.ช.กิตติพงศ์ รักเรียน&#10;2	66002	ด.ญ.กัญญาณัฐ ตั้งใจดี&#10;3	66003	ด.ช.ณัฐวุฒิ เก่งกาจ" class="w-full p-3.5 rounded-xl border border-slate-300 font-mono text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
+        <textarea id="bulkImportTextarea" rows="8" placeholder="ตัวอย่างการวางข้อมูล:&#10;1	ด.ช.กิตติพงศ์ รักเรียน&#10;2	ด.ญ.กัญญาณัฐ ตั้งใจดี&#10;3	ด.ช.ณัฐวุฒิ เก่งกาจ" class="w-full p-3.5 rounded-xl border border-slate-300 font-mono text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
 
         <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
           <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
@@ -1559,7 +1537,6 @@
       thead.innerHTML = `
         <tr>
           <th class="py-3 px-1 text-center bg-slate-900 sticky-col-no">เลขที่</th>
-          <th class="py-3 px-1 text-center bg-slate-900 sticky-col-code">รหัส</th>
           <th class="py-3 px-2.5 text-left bg-slate-900 sticky-col-name">ชื่อ - นามสกุล</th>
           ${unitHeadersHtml}
           <th class="py-3 px-3 text-center bg-slate-800 border-l border-slate-700 min-w-[105px]">
@@ -1580,9 +1557,8 @@
       // Filter Students
       const filteredStudents = allStudents.filter(st => {
         const fullName = `${st.prefix || ''}${st.first_name || ''} ${st.last_name || ''}`.toLowerCase();
-        const code = String(st.student_code || '').toLowerCase();
         const noStr = String(st.student_no || '');
-        const matchSearch = !searchQ || fullName.includes(searchQ) || code.includes(searchQ) || noStr === searchQ;
+        const matchSearch = !searchQ || fullName.includes(searchQ) || noStr === searchQ;
         if (!matchSearch) return false;
 
         if (filterMode === 'all') return true;
@@ -1597,7 +1573,7 @@
       if (filteredStudents.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="${units.length + 6}" class="py-12 text-center text-slate-400">
+            <td colspan="${units.length + 5}" class="py-12 text-center text-slate-400">
               ไม่มีรายชื่อนักเรียนที่ตรงกับเงื่อนไข หรือยังไม่ได้เพิ่มนักเรียนในห้องนี้
             </td>
           </tr>
@@ -1634,7 +1610,7 @@
                     oninput="handleScoreCellInput(this)"
                     onkeydown="handleScoreCellKeydown(event, ${rowIdx}, ${colIdx})"
                     class="score-input w-20 px-2 py-1.5 text-center rounded-lg border ${!canEdit ? 'bg-slate-100 text-slate-500 cursor-not-allowed border-slate-200' : (isOverMax ? 'border-rose-500 bg-rose-50 text-rose-700' : (hasSubActivities ? 'border-emerald-300 bg-emerald-50/40 focus:bg-white focus:border-brand-500' : 'border-slate-200 bg-slate-50/70 focus:bg-white focus:border-brand-500'))} font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500/30 transition"
-                    title="${!canEdit ? 'ต้องเข้าสู่ระบบด้วย Gmail เจ้าของระบบก่อนแก้ไข' : (hasSubActivities ? 'คำนวณจากกิจกรรมย่อย (คลิกชื่อหน่วยด้านบนเพื่อดูรายละเอียด หรือพิมพ์แก้ไขได้)' : '')}"
+                    title="${!canEdit ? 'กรุณาลงชื่อแก้ไขก่อนทำการแก้ไขข้อมูล' : (hasSubActivities ? 'คำนวณจากกิจกรรมย่อย (คลิกชื่อหน่วยด้านบนเพื่อดูรายละเอียด หรือพิมพ์แก้ไขได้)' : '')}"
                   />
                 </div>
               </td>
@@ -1644,7 +1620,6 @@
           return `
             <tr id="stuRow_${st.student_id}" class="${rowBg} hover:bg-blue-50/50 transition">
               <td class="py-2.5 px-1 text-center font-bold text-slate-700 ${rowBg} sticky-col-no">${st.student_no}</td>
-              <td class="py-2.5 px-1 text-center text-slate-500 text-xs font-mono ${rowBg} sticky-col-code truncate">${escapeHtml(st.student_code || '-')}</td>
               <td class="py-2.5 px-2.5 font-medium text-slate-800 ${rowBg} sticky-col-name truncate" title="${escapeHtml(fullName)}">${escapeHtml(fullName)}</td>
               ${unitCells}
               <td id="rawSumCell_${st.student_id}" class="py-2.5 px-3 text-center font-semibold text-slate-700 border-l border-slate-200 bg-slate-100/60">
@@ -1690,7 +1665,7 @@
 
       tfoot.innerHTML = `
         <tr>
-          <td colspan="3" class="py-3 px-3 text-right font-bold text-slate-700 bg-slate-100 sticky-col-footer">ค่าเฉลี่ย (${students.length} คน):</td>
+          <td colspan="2" class="py-3 px-3 text-right font-bold text-slate-700 bg-slate-100 sticky-col-footer">ค่าเฉลี่ย (${students.length} คน):</td>
           ${unitAvgCells}
           <td class="py-3 px-3 text-center border-l border-slate-300">${avgRaw.toFixed(2)} / ${totalRawMax}</td>
           <td class="py-3 px-3 text-center font-bold text-brand-800 bg-blue-100/70 border-l border-blue-300">${avgNet100.toFixed(2)} / 100</td>
@@ -1895,7 +1870,7 @@
       document.getElementById('addStuNo').value = students.length + 1;
 
       if (students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-slate-400">ยังไม่มีรายชื่อนักเรียนในห้องนี้</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="3" class="py-8 text-center text-slate-400">ยังไม่มีรายชื่อนักเรียนในห้องนี้</td></tr>`;
         return;
       }
 
@@ -1906,10 +1881,6 @@
             <td class="py-2 px-3 text-center">
               <input type="number" value="${st.student_no}" onchange="updateStudentField('${st.student_id}', 'student_no', this.value)"
                 class="w-16 px-2 py-1 text-center rounded border border-slate-200 font-bold text-slate-700" />
-            </td>
-            <td class="py-2 px-3 text-center">
-              <input type="text" value="${escapeHtml(st.student_code || '')}" onchange="updateStudentField('${st.student_id}', 'student_code', this.value)"
-                class="w-28 px-2 py-1 text-center rounded border border-slate-200 font-mono text-xs" />
             </td>
             <td class="py-2 px-3">
               <input type="text" value="${escapeHtml(fullName)}" onchange="updateStudentFullName('${st.student_id}', this.value)"
@@ -1929,7 +1900,6 @@
       e.preventDefault();
       if (!requireOwnerPermission()) return;
       const no = Number(document.getElementById('addStuNo').value) || 1;
-      const code = document.getElementById('addStuCode').value.trim();
       const prefix = document.getElementById('addStuPrefix').value;
       const rawName = document.getElementById('addStuFullName').value.trim();
       if (!rawName) return;
@@ -1942,14 +1912,13 @@
         student_id: 'stu_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
         class_id: appData.activeClassId,
         student_no: no,
-        student_code: code,
+        student_code: '',
         prefix: prefix,
         first_name: firstName,
         last_name: lastName,
         status: 'active'
       });
 
-      document.getElementById('addStuCode').value = '';
       document.getElementById('addStuFullName').value = '';
 
       saveToLocal();
@@ -2005,11 +1974,11 @@
 
     function fillSampleStudentImportText() {
       document.getElementById('bulkImportTextarea').value =
-`1\t66401\tด.ช.กฤตภาส เลิศล้ำ
-2\t66402\tด.ช.ชยพล มั่นคง
-3\t66403\tด.ช.ธีรภัทร สุขสวัสดิ์
-4\t66404\tด.ญ.กมลชนก ใจงาม
-5\t66405\tด.ญ.นภัสสร สว่างจิต`;
+`1\tด.ช.กฤตภาส เลิศล้ำ
+2\tด.ช.ชยพล มั่นคง
+3\tด.ช.ธีรภัทร สุขสวัสดิ์
+4\tด.ญ.กมลชนก ใจงาม
+5\tด.ญ.นภัสสร สว่างจิต`;
     }
 
     function handleCSVFileUpload(event) {
@@ -2477,7 +2446,6 @@
       thead.innerHTML = `
         <tr>
           <th class="py-3 px-1 text-center bg-slate-900 sticky-col-no">เลขที่</th>
-          <th class="py-3 px-1 text-center bg-slate-900 sticky-col-code">รหัส</th>
           <th class="py-3 px-2.5 text-left bg-slate-900 sticky-col-name">ชื่อ - นามสกุล</th>
           ${actHeaders}
           <th class="py-3 px-3 text-center bg-slate-800 border-l border-slate-700 min-w-[115px]">
@@ -2496,7 +2464,7 @@
       if (acts.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="5" class="py-12 text-center text-slate-500">
+            <td colspan="4" class="py-12 text-center text-slate-500">
               <div class="flex flex-col items-center gap-2">
                 <p class="font-semibold text-slate-700">หน่วยนี้ยังไม่มีรายการกิจกรรมย่อย</p>
                 <p class="text-xs text-slate-400">พิมพ์ชื่อกิจกรรมและกำหนดคะแนนเต็มที่แถบด้านบน แล้วกดปุ่ม <strong>"+ เพิ่มกิจกรรม"</strong> เพื่อเริ่มกรอกคะแนนรายกิจกรรม</p>
@@ -2550,7 +2518,6 @@
         return `
           <tr class="${rowBg} hover:bg-blue-50/50 transition">
             <td class="py-2.5 px-1 text-center font-bold text-slate-700 ${rowBg} sticky-col-no">${st.student_no}</td>
-            <td class="py-2.5 px-1 text-center text-slate-500 text-xs font-mono ${rowBg} sticky-col-code truncate">${escapeHtml(st.student_code || '-')}</td>
             <td class="py-2.5 px-2.5 font-medium text-slate-800 ${rowBg} sticky-col-name truncate" title="${escapeHtml(fullName)}">${escapeHtml(fullName)}</td>
             ${actCells}
             <td id="actRawSumCell_${st.student_id}" class="py-2.5 px-3 text-center font-semibold text-slate-700 border-l border-slate-200 bg-slate-100/60">
@@ -2591,7 +2558,7 @@
 
       tfoot.innerHTML = `
         <tr>
-          <td colspan="3" class="py-2.5 px-4 text-right font-bold text-slate-700">ค่าเฉลี่ยรายกิจกรรม (${students.length} คน):</td>
+          <td colspan="2" class="py-2.5 px-4 text-right font-bold text-slate-700">ค่าเฉลี่ยรายกิจกรรม (${students.length} คน):</td>
           ${avgActCells}
           <td class="py-2.5 px-3 text-center border-l border-slate-300">-</td>
           <td class="py-2.5 px-3 text-center font-bold text-brand-800 bg-blue-100/70 border-l border-blue-300">${avgUnit.toFixed(2)} / ${unit.max_raw_score}</td>
@@ -2674,14 +2641,14 @@
       const students = getClassStudents();
       const acts = getUnitActivities(unit.unit_id);
 
-      const headers = ['เลขที่', 'รหัสนักเรียน', 'ชื่อ-นามสกุล'];
+      const headers = ['เลขที่', 'ชื่อ-นามสกุล'];
       acts.forEach(a => headers.push(`${a.activity_name} (เต็ม ${a.max_score})`));
       headers.push(`คะแนนสุทธิหน่วย (${unit.unit_name} เต็ม ${unit.max_raw_score})`);
 
       const rows = [headers];
       students.forEach(st => {
         const fullName = `${st.prefix || ''}${st.first_name || ''} ${st.last_name || ''}`.trim();
-        const row = [st.student_no, st.student_code || '', fullName];
+        const row = [st.student_no, fullName];
         acts.forEach(a => {
           row.push(getStudentActivityScoreValue(st.student_id, a.activity_id));
         });
@@ -2818,15 +2785,15 @@
       const students = getClassStudents();
       const units = getClassUnits();
 
-      const headers = ['เลขที่', 'รหัสนักเรียน', 'ชื่อ-นามสกุล'];
+      const headers = ['เลขที่', 'ชื่อ-นามสกุล'];
       units.forEach(u => headers.push(`${u.unit_name} (เต็ม ${u.max_raw_score})`));
-      headers.push('รวมคะแนนดิบ', 'คะแนนสุทธิ (เต็ม 100)', 'เกรดที่ได้');
+      headers.push('คะแนนดิบรวม', 'คะแนนสุทธิ (เต็ม 100)', 'เกรดที่ได้');
 
       const rows = [headers];
       students.forEach(st => {
         const fullName = `${st.prefix || ''}${st.first_name || ''} ${st.last_name || ''}`.trim();
         const summary = calculateStudentSummary(st.student_id, units, cls.scoring_mode);
-        const row = [st.student_no, st.student_code || '', fullName];
+        const row = [st.student_no, fullName];
 
         units.forEach(u => {
           row.push(getStudentScoreValue(st.student_id, u.unit_id));
